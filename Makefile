@@ -68,7 +68,7 @@ vendor_remove_dirs := app vendor/operator/app
 ##############################################################################
 # Vendor apks you want to use
 #-----------------------------------------------------------------------------
-vendor_saved_apps := Bluetooth BluetoothExt Phone Gallery2
+vendor_saved_apps := Bluetooth BluetoothExt Phone
 
 ##############################################################################
 # Apks build from current project root directory
@@ -76,10 +76,10 @@ vendor_saved_apps := Bluetooth BluetoothExt Phone Gallery2
 # 1, check if the apk in BAIDU_UPDATE_RES_APPS (you can see it in build/configs/baidu_default.mk)
 # 2, if in, you need to change the resource id to "#type@name#t" or "#type@name#a" by idtoname:
 #	a, use "apktool d source/system/framework/framework-res.apk other/TMP/framework-res"
-#	b, use "idtoname other/TMP/framework-res/res/values/public_master.xml XXXX/smali" 
+#	b, use "idtoname other/TMP/framework-res/res/values/public_master.xml XXXX/smali"
 #		(XXXX is the directory where you decode baidu's apk to)
 # 3, if not, just decode it
-# 
+#
 # if the apk is decode from vendor: just decode it
 #
 # eg: vendor_modify_apps := FMRadio
@@ -114,10 +114,10 @@ vendor_modify_jars := framework oem-services pm services-ext services telephony-
 ##############################################################################
 # Files which you want to saved in baidu directory
 #-----------------------------------------------------------------------------
-# baidu_saved_files := lib/libwebcore.so
+baidu_saved_files := lib/libsqlite.so
 
 ##############################################################################
-# baidu_remove_apps: those baidu apk you want remove 
+# baidu_remove_apps: those baidu apk you want remove
 #-----------------------------------------------------------------------------
  baidu_remove_apps := BaiduUserFeedback.apk Phone
 
@@ -125,7 +125,7 @@ vendor_modify_jars := framework oem-services pm services-ext services telephony-
 # baidu_modify_apps: which base the baidu's apk
 # just override the res, append *.smali.part
 #-----------------------------------------------------------------------------
-# baidu_modify_apps := Phone
+baidu_modify_apps += BaiduCamera
 
 ##############################################################################
 # baidu_modify_jars: which base the baidu's jar
